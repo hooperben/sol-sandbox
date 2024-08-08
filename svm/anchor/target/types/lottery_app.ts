@@ -14,6 +14,27 @@ export type LotteryApp = {
   },
   "instructions": [
     {
+      "name": "getVerificationKeyHash",
+      "discriminator": [
+        89,
+        248,
+        233,
+        118,
+        112,
+        246,
+        214,
+        202
+      ],
+      "accounts": [],
+      "args": [],
+      "returns": {
+        "array": [
+          "u64",
+          4
+        ]
+      }
+    },
+    {
       "name": "verifyProof",
       "discriminator": [
         217,
@@ -36,13 +57,20 @@ export type LotteryApp = {
           "type": {
             "vec": {
               "array": [
-                "u8",
-                32
+                "u64",
+                4
               ]
             }
           }
         }
       ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "wrongPublicInputAmount",
+      "msg": "Number of public inputs doesn't match"
     }
   ]
 };

@@ -8,6 +8,27 @@
   },
   "instructions": [
     {
+      "name": "get_verification_key_hash",
+      "discriminator": [
+        89,
+        248,
+        233,
+        118,
+        112,
+        246,
+        214,
+        202
+      ],
+      "accounts": [],
+      "args": [],
+      "returns": {
+        "array": [
+          "u64",
+          4
+        ]
+      }
+    },
+    {
       "name": "verify_proof",
       "discriminator": [
         217,
@@ -30,13 +51,20 @@
           "type": {
             "vec": {
               "array": [
-                "u8",
-                32
+                "u64",
+                4
               ]
             }
           }
         }
       ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "WrongPublicInputAmount",
+      "msg": "Number of public inputs doesn't match"
     }
   ]
 }

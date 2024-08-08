@@ -418,11 +418,43 @@ pub mod lottery_app {
         0x319a43a3abd32e21,
     ];
 
-    pub fn verify_proof(ctx: Context<Initialize>, proof: Vec<u8>, public_inputs: Vec<[u8; 32]>) -> Result<()> {
-        msg!("Proof verified!");
-        println!("{:?}", proof);
+    pub fn get_verification_key_hash(ctx: Context<Initialize>) -> Result<[u64; 4]> {
+        Ok(VERIFICATION_KEY_HASH)
+    }
+
+    pub fn verify_proof(ctx: Context<Initialize>, proof: Vec<u8>, public_inputs: Vec<[u64; 4]>) -> Result<()> {
+        // we need to check that public_inputs is of length VK_NUM_INPUTS
+        if public_inputs.len() != VK_NUM_INPUTS[3] as usize {
+            return err!(PlonkyError::WrongPublicInputAmount);
+        }
+
+        // 0x30644e72e131a029b85045b68181585d97816a916871ca8d3c208c16d87cfd47
+        let EC_GROUP_ORDER: [u64; 4] = [
+            0x30644e72e131a029,
+            0xb85045b68181585d,
+            0x97816a916871ca8d,
+            0x3c208c16d87cfd47,
+        ];
+
+        // 0x30644e72e131a029b85045b68181585d2833e84879b9709143e1f593f0000001
+        let PRIME_FIELD_ORDER: [u64; 4] = [
+            0x30644e72e131a029,
+            0xb85045b68181585d,
+            0x2833e84879b97091,
+            0x43e1f593f0000001,
+        ];
+
+        // read the proof in
+        
+
         Ok(())
     }
+}
+
+#[error_code]
+pub enum PlonkyError {
+    #[msg("Number of public inputs doesn't match")]
+    WrongPublicInputAmount
 }
 
 #[derive(Accounts)]
