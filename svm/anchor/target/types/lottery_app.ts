@@ -14,19 +14,35 @@ export type LotteryApp = {
   },
   "instructions": [
     {
-      "name": "greet",
+      "name": "verifyProof",
       "discriminator": [
-        203,
-        194,
-        3,
-        150,
-        228,
-        58,
-        181,
-        62
+        217,
+        211,
+        191,
+        110,
+        144,
+        13,
+        186,
+        98
       ],
       "accounts": [],
-      "args": []
+      "args": [
+        {
+          "name": "proof",
+          "type": "bytes"
+        },
+        {
+          "name": "publicInputs",
+          "type": {
+            "vec": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          }
+        }
+      ]
     }
   ]
 };

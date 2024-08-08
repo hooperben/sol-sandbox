@@ -8,19 +8,35 @@
   },
   "instructions": [
     {
-      "name": "greet",
+      "name": "verify_proof",
       "discriminator": [
-        203,
-        194,
-        3,
-        150,
-        228,
-        58,
-        181,
-        62
+        217,
+        211,
+        191,
+        110,
+        144,
+        13,
+        186,
+        98
       ],
       "accounts": [],
-      "args": []
+      "args": [
+        {
+          "name": "proof",
+          "type": "bytes"
+        },
+        {
+          "name": "public_inputs",
+          "type": {
+            "vec": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          }
+        }
+      ]
     }
   ]
 }

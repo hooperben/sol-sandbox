@@ -8,9 +8,16 @@ describe('lottery-app', () => {
 
   const program = anchor.workspace.LotteryApp as Program<LotteryApp>;
 
-  it('should run the program', async () => {
-    // Add your test here.
-    const tx = await program.methods.greet().rpc();
-    console.log('Your transaction signature', tx);
+  it('should run the program', () => {
+    const proof = Buffer.from([1, 2, 3, 4]);
+
+    // Example public inputs as an array of arrays of 32 bytes
+    const publicInputs = [Array(32).fill(0), Array(32).fill(1)];
+
+    program.methods
+      .verifyProof(proof, publicInputs)
+      .rpc()
+      .then((result) => console.log(result));
+    // console.log(tester);
   });
 });
