@@ -50,7 +50,14 @@ export type LotteryApp = {
       "args": [
         {
           "name": "proof",
-          "type": "bytes"
+          "type": {
+            "vec": {
+              "array": [
+                "u64",
+                4
+              ]
+            }
+          }
         },
         {
           "name": "publicInputs",

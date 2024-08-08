@@ -422,7 +422,7 @@ pub mod lottery_app {
         Ok(VERIFICATION_KEY_HASH)
     }
 
-    pub fn verify_proof(ctx: Context<Initialize>, proof: Vec<u8>, public_inputs: Vec<[u64; 4]>) -> Result<()> {
+    pub fn verify_proof(ctx: Context<Initialize>, proof: Vec<[u64; 4]>, public_inputs: Vec<[u64; 4]>) -> Result<()> {
         // we need to check that public_inputs is of length VK_NUM_INPUTS
         if public_inputs.len() != VK_NUM_INPUTS[3] as usize {
             return err!(PlonkyError::WrongPublicInputAmount);
@@ -444,8 +444,7 @@ pub mod lottery_app {
             0x43e1f593f0000001,
         ];
 
-        // read the proof in
-        
+        // now gotta read the proof in
 
         Ok(())
     }

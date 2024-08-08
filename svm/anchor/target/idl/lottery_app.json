@@ -44,7 +44,14 @@
       "args": [
         {
           "name": "proof",
-          "type": "bytes"
+          "type": {
+            "vec": {
+              "array": [
+                "u64",
+                4
+              ]
+            }
+          }
         },
         {
           "name": "public_inputs",
