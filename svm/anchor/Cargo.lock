@@ -1037,6 +1037,8 @@ name = "lottery-app"
 version = "0.1.0"
 dependencies = [
  "anchor-lang",
+ "num-bigint",
+ "num-traits",
 ]
 
 [[package]]
