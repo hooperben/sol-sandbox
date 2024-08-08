@@ -7,5 +7,5 @@ playing around with the SVM
 ```bash
 cd svm &&
 bun install &&
-npm run achor test
+npm run anchor test
 ```

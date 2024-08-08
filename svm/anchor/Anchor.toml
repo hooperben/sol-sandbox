@@ -1,11 +1,12 @@
 [toolchain]
+anchor_version = "0.30.1"
 
 [features]
 seeds = false
 skip-lint = false
 
 [programs.localnet]
-counter = "FeaX68S8cLZECkS48bxrr79bo4X79Pr1XySZsaHwvoAs"
+lottery_app = "C1HzcdTw9f5rEyrEHW6FnmdWo9HuxY4gwW9AJ18EgHJw"
 
 [registry]
 url = "https://api.apr.dev"

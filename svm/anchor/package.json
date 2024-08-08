@@ -1,8 +1,8 @@
 {
-  "name": "@svm/anchor",
+  "name": "@lottery-app/anchor",
   "version": "0.0.1",
   "dependencies": {
-    "@coral-xyz/anchor": "^0.30.0",
+    "@coral-xyz/anchor": "^0.30.1",
     "@solana/web3.js": "1.91.9"
   },
   "main": "./index.cjs",

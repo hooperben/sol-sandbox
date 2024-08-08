@@ -33,9 +33,7 @@ testem.log
 .DS_Store
 Thumbs.db
 .nx/cache
-# Next.js
-.next
-out
+.nx/workspace-data
 .anchor
 anchor/target/deploy
 anchor/target/debug

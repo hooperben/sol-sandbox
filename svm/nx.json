@@ -15,10 +15,9 @@
     "sharedGlobals": []
   },
   "targetDefaults": {
-    "@nx/next:build": {
+    "build": {
       "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
+      "dependsOn": ["^build"]
     },
     "@nx/eslint:lint": {
       "cache": true,
@@ -28,11 +27,6 @@
         "{workspaceRoot}/.eslintignore",
         "{workspaceRoot}/eslint.config.js"
       ]
-    },
-    "@nx/rollup:rollup": {
-      "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
     },
     "@nx/jest:jest": {
       "cache": true,
@@ -49,11 +43,28 @@
     }
   },
   "generators": {
-    "@nx/next": {
+    "@nx/react": {
       "application": {
+        "babel": true,
+        "style": "css",
+        "linter": "eslint",
+        "bundler": "webpack"
+      },
+      "component": {
+        "style": "css"
+      },
+      "library": {
         "style": "css",
         "linter": "eslint"
       }
     }
-  }
+  },
+  "plugins": [
+    {
+      "plugin": "@nx/rollup/plugin",
+      "options": {
+        "buildTargetName": "build"
+      }
+    }
+  ]
 }

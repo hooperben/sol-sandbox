@@ -2,6 +2,7 @@
 /dist
 /coverage
 /.nx/cache
+/.nx/workspace-data
 .anchor
 anchor/target/deploy
 anchor/target/debug
