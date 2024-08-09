@@ -72,6 +72,11 @@
       "code": 6000,
       "name": "WrongPublicInputAmount",
       "msg": "Number of public inputs doesn't match"
+    },
+    {
+      "code": 6001,
+      "name": "WrongProofLength",
+      "msg": "Wrong proof length"
     }
   ]
 }

@@ -78,6 +78,11 @@ export type LotteryApp = {
       "code": 6000,
       "name": "wrongPublicInputAmount",
       "msg": "Number of public inputs doesn't match"
+    },
+    {
+      "code": 6001,
+      "name": "wrongProofLength",
+      "msg": "Wrong proof length"
     }
   ]
 };

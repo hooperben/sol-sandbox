@@ -445,6 +445,81 @@ pub mod lottery_app {
         ];
 
         // now gotta read the proof in
+        if proof.len() != 134 {
+            return err!(PlonkyError::WrongProofLength);
+        }
+
+        let [
+            INPUT_W1_Y,
+            INPUT_W1_X,
+            INPUT_W2_Y,
+            INPUT_W2_X,
+            INPUT_W3_Y,
+            INPUT_W3_X,
+            INPUT_W4_Y,
+            INPUT_W4_X,
+            INPUT_S_Y,
+            INPUT_S_X,
+            INPUT_Z_Y,
+            INPUT_Z_X,
+            INPUT_Z_LOOKUP_Y,
+            INPUT_Z_LOOKUP_X,
+            INPUT_T1_Y,
+            INPUT_T1_X,
+            INPUT_T2_Y,
+            INPUT_T2_X,
+            INPUT_T3_Y,
+            INPUT_T3_X,
+            INPUT_T4_Y,
+            INPUT_T4_X,
+            INPUT_W1_EVAL,
+            INPUT_W2_EVAL,
+            INPUT_W3_EVAL,
+            INPUT_W4_EVAL,
+            INPUT_S_EVAL,
+            INPUT_Z_EVAL,
+            INPUT_Z_LOOKUP_EVAL,
+            INPUT_Q1_EVAL,
+            INPUT_Q2_EVAL,
+            INPUT_Q3_EVAL,
+            INPUT_Q4_EVAL,
+            INPUT_QM_EVAL,
+            INPUT_QC_EVAL,
+            INPUT_QARITH_EVAL,
+            INPUT_QSORT_EVAL,
+            INPUT_QELLIPTIC_EVAL,
+            INPUT_QAUX_EVAL,
+            INPUT_SIGMA1_EVAL,
+            INPUT_SIGMA2_EVAL,
+            INPUT_SIGMA3_EVAL,
+            INPUT_SIGMA4_EVAL,
+            INPUT_TABLE1_EVAL,
+            INPUT_TABLE2_EVAL,
+            INPUT_TABLE3_EVAL,
+            INPUT_TABLE4_EVAL,
+            INPUT_TABLE_TYPE_EVAL,
+            INPUT_ID1_EVAL,
+            INPUT_ID2_EVAL,
+            INPUT_ID3_EVAL,
+            INPUT_ID4_EVAL,
+            INPUT_W1_OMEGA_EVAL,
+            INPUT_W2_OMEGA_EVAL,
+            INPUT_W3_OMEGA_EVAL,
+            INPUT_W4_OMEGA_EVAL,
+            INPUT_S_OMEGA_EVAL,
+            INPUT_Z_OMEGA_EVAL,
+            INPUT_Z_LOOKUP_OMEGA_EVAL,
+            INPUT_TABLE1_OMEGA_EVAL,
+            INPUT_TABLE2_OMEGA_EVAL,
+            INPUT_TABLE3_OMEGA_EVAL,
+            INPUT_TABLE4_OMEGA_EVAL,
+            INPUT_PI_Z_Y,
+            INPUT_PI_Z_X,
+            INPUT_PI_Z_OMEGA_Y,
+            INPUT_PI_Z_OMEGA_X,
+        ] = proof[..134] else {
+            return err!(PlonkyError::WrongProofLength);
+        };
 
         Ok(())
     }
@@ -453,7 +528,10 @@ pub mod lottery_app {
 #[error_code]
 pub enum PlonkyError {
     #[msg("Number of public inputs doesn't match")]
-    WrongPublicInputAmount
+    WrongPublicInputAmount,
+
+    #[msg("Wrong proof length")]
+    WrongProofLength
 }
 
 #[derive(Accounts)]
