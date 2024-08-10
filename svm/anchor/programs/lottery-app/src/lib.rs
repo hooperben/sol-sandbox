@@ -521,6 +521,9 @@ pub mod lottery_app {
             return err!(PlonkyError::WrongProofLength);
         };
 
+        // TODO need to also add recursive proofs
+
+
         Ok(())
     }
 }
