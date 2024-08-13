@@ -6,3 +6,4 @@ edition = "2021"
 [dependencies]
 num-bigint = "0.4"
 num-traits = "0.2"
+noir_rs = { git = "https://github.com/visoftsolutions/noir_rs.git", branch = "latest", package = "noir_rs" }
